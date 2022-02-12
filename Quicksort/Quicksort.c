@@ -7,10 +7,10 @@ void swap(int * arr, int i, int j);
 
 int main(int argc, char *argv[])
 {
-    int arr [10] = {12, 42, 43, 43, 55, 6, 37, 88, 19, 10};
+    int arr [8] = {34, 23, 12, 3, 4, 5, 1, 0};
     int length = (sizeof(arr) / sizeof(arr[0])) - 1;
     quicksort(arr, 0, length);
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < length + 1; i++)
     {
         printf("%d", arr[i]), "\n";
         printf("\n");
@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
 }
 void quicksort(int *arr, int low, int high)
 {
+    if(high == 0 || high == -1){
+        return;
+    }
     if (low < high)
     {
         int pivot = partition(arr, low, high);
