@@ -28,18 +28,18 @@ void quicksort(int *arr, int low, int high)
 }
 int partition(int *arr, int low, int high)
 {
-    int pivot = arr[high];
-    int i = low - 1;
-    for (int j = low; j <= high - 1; j++)
+    int pivot = arr[low];
+    int i = high + 1;
+    for (int j = high; j >= low + 1; j--)
     {
-        if (arr[j] <= pivot)
+        if (arr[j] >= pivot)
         {
-            i++;
+            i--;
             swap(arr, i, j);
         }
     }
-    swap(arr, i + 1, high);
-    return i + 1;
+    swap(arr, i - 1, low);
+    return i - 1;
 }
 void swap(int *arr, int i, int j){
     int temp = arr[i];

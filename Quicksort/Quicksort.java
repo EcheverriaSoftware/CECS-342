@@ -3,7 +3,7 @@ import java.util.Arrays;
 //Link: https://www.geeksforgeeks.org/quick-sort/
 public class Quicksort{
     public static void main(String [] args){
-        int [] arr = {10, 80, 30, 90, 40, 50, 70};
+        int [] arr = {70, 80, 30, 90, 40, 50, 20};
         int length = arr.length - 1; 
         quicksort(arr, 0, length);
         System.out.println(Arrays.toString(arr));
@@ -16,16 +16,16 @@ public class Quicksort{
         }
     }
     public static int partition(int [] arr, int low, int high){
-        int pivot = arr[high];
-        int i = low - 1;
-        for(int j = low; j <= high - 1; j++){
-            if(arr[j] <= pivot){
-                i++;
+        int pivot = arr[low];
+        int i = high + 1;
+        for(int j = high; j >= low + 1; j--){
+            if(arr[j] >= pivot){
+                i--;
                 swap(arr, i, j);
             }
         }
-        swap(arr, i + 1, high);
-        return i + 1;
+        swap(arr, i - 1, low);
+        return i - 1;
     }
     public static void swap(int [] arr, int i, int j){
         int temp = arr[i];
